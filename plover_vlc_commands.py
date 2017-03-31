@@ -31,6 +31,7 @@ def _vlc_request(path=''):
     r.raise_for_status()
     return r
 
+# Commands. {{{
 
 def pause(engine, cmdline):
     _vlc_request('?command=pl_forcepause')
@@ -48,7 +49,15 @@ def stop(engine, cmdline):
     _vlc_request('?command=pl_stop')
     return ''
 
-def timestamp(engine, cmdline):
+def toggle_pause(engine, cmdline):
+    _vlc_request('?command=pl_pause')
+    return ''
+
+# }}}
+
+# Metas. {{{
+
+def timestamp(ctx, cmdline):
     r = _vlc_request()
     seconds = r.json()['time']
     hours = seconds // 3600
@@ -56,8 +65,8 @@ def timestamp(engine, cmdline):
     minutes = seconds // 60
     seconds -= minutes * 60
     timestamp = '%02u:%02u:%02u' % (hours, minutes, seconds)
-    return timestamp
+    action = ctx.new_action()
+    action.text = timestamp
+    return action
 
-def toggle_pause(engine, cmdline):
-    _vlc_request('?command=pl_pause')
-    return ''
+# }}}

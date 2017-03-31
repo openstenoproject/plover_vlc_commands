@@ -36,8 +36,10 @@ setup(
     VLC_resume       = plover_vlc_commands:resume
     VLC_seek         = plover_vlc_commands:seek
     VLC_stop         = plover_vlc_commands:stop
-    VLC_timestamp    = plover_vlc_commands:timestamp
     VLC_toggle_pause = plover_vlc_commands:toggle_pause
+
+    [plover.meta]
+    VLC_timestamp    = plover_vlc_commands:timestamp
 
     ''',
     zip_safe = True,
