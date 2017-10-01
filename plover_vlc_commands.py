@@ -35,22 +35,17 @@ def _vlc_request(path=''):
 
 def pause(engine, cmdline):
     _vlc_request('?command=pl_forcepause')
-    return ''
 
 def resume(engine, cmdline):
     _vlc_request('?command=pl_forceresume')
-    return ''
 
 def seek(engine, cmdline):
     _vlc_request('?command=seek&val='+cmdline)
-    return ''
 
 def stop(engine, cmdline):
     _vlc_request('?command=pl_stop')
-    return ''
 
 def toggle_pause(engine, cmdline):
     _vlc_request('?command=pl_pause')
-    return ''
 
 # }}}
