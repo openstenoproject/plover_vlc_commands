@@ -29,11 +29,3 @@ Available commands
 -  ``VLC_seek``: seek the video, for example ``{PLOVER:VLC_seek:-10s}``
    to seek backward 10 seconds, ``{PLOVER:VLC_seek:+1m}`` to seek
    forward 1 minute
-
-Timestamp support
------------------
-
-A custom meta to get the current video timestamp is also provided:
-``VLC_timestamp``. For example using
-``{[inaudible ^}{:VLC_timestamp}{^]}`` would translate to something
-like: ``[inaudible 00:08:01]``.

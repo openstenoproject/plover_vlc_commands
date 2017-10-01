@@ -54,19 +54,3 @@ def toggle_pause(engine, cmdline):
     return ''
 
 # }}}
-
-# Metas. {{{
-
-def timestamp(ctx, cmdline):
-    r = _vlc_request()
-    seconds = r.json()['time']
-    hours = seconds // 3600
-    seconds -= hours * 3600
-    minutes = seconds // 60
-    seconds -= minutes * 60
-    timestamp = '%02u:%02u:%02u' % (hours, minutes, seconds)
-    action = ctx.new_action()
-    action.text = timestamp
-    return action
-
-# }}}
