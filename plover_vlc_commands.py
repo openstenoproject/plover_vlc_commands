@@ -36,6 +36,9 @@ def _vlc_request(path=''):
 def pause(engine, cmdline):
     _vlc_request('?command=pl_forcepause')
 
+def rate(engine, cmdline):
+    _vlc_request('?command=rate&val='+cmdline)
+
 def resume(engine, cmdline):
     _vlc_request('?command=pl_forceresume')
 
