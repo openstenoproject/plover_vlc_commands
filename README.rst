@@ -29,5 +29,5 @@ Available commands
 -  ``VLC_rate``: change the rate of playback, for example ``{PLOVER:rate:0.5}``
    to halve the playback speed, or ``{PLOVER:rate:2.0}`` to double it.
 -  ``VLC_seek``: seek the video, for example ``{PLOVER:VLC_seek:-10s}``
-   to seek backward 10 seconds, ``{PLOVER:VLC_seek:+1m}`` to seek
-   forward 1 minute
+   to seek backward 10 seconds, ``{PLOVER:VLC_seek:+1m}`` to seek forward 1
+   minute, or ``{PLOVER:VLC_seek:50%}`` to seek to the halfway point.
