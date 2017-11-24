@@ -37,6 +37,22 @@ def pause(engine, cmdline):
     _vlc_request('?command=pl_forcepause')
 
 def rate(engine, cmdline):
+    relative, percent = False, False
+    if cmdline[0] in ('-', '+'):
+        relative = True
+    if cmdline[-1] == '%':
+        percent = True
+        cmdline = cmdline[:-1]
+    if relative:
+        rate = round(_vlc_request().json()['rate'], 2)
+        if percent:
+            rate += float(cmdline) / 100 * rate
+        else:
+            rate += float(cmdline)
+        cmdline = str(rate)
+    elif percent:
+        rate = float(cmdline) / 100
+        cmdline = str(rate)
     _vlc_request('?command=rate&val='+cmdline)
 
 def resume(engine, cmdline):

@@ -24,14 +24,15 @@ Setup
 Available commands
 ------------------
 
--  ``VLC_pause``, ``VLC_resume``, ``VLC_stop``, ``VLC_toggle_pause``:
-   self explanatory
--  ``VLC_rate``: change the rate of playback, for example
+- ``VLC_pause``, ``VLC_resume``, ``VLC_stop``, ``VLC_toggle_pause``:
+  self explanatory
+- ``VLC_rate``: change the rate of playback, for example
   ``{PLOVER:VLC_rate:0.5}`` to halve the playback speed, or
-  ``{PLOVER:VLC_rate:2.0}`` to double it.
--  ``VLC_seek``: seek the video, for example ``{PLOVER:VLC_seek:-10s}``
-   to seek backward 10 seconds, ``{PLOVER:VLC_seek:+1m}`` to seek forward
-   1 minute, or ``{PLOVER:VLC_seek:50%}`` to seek to the halfway point.
+  ``{PLOVER:VLC_rate:2.0}`` to double it. Percentage and relative
+  rate changes are also supported: ``{PLOVER:VLC_rate:-10%}``.
+- ``VLC_seek``: seek the video, for example ``{PLOVER:VLC_seek:-10s}``
+  to seek backward 10 seconds, ``{PLOVER:VLC_seek:+1m}`` to seek forward
+  1 minute, or ``{PLOVER:VLC_seek:50%}`` to seek to the halfway point.
 
 Release history
 ---------------
@@ -40,6 +41,7 @@ in development
 ~~~~~~~~~~~~~~
 
 * fix rate command documentation
+* add support for percentage and relative rate changes
 
 0.6.3
 ~~~~~
