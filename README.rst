@@ -37,8 +37,8 @@ Available commands
 Release history
 ---------------
 
-in development
-~~~~~~~~~~~~~~
+0.6.4
+~~~~~
 
 * fix rate command documentation
 * add support for percentage and relative rate changes
