@@ -32,3 +32,17 @@ Available commands
 -  ``VLC_seek``: seek the video, for example ``{PLOVER:VLC_seek:-10s}``
    to seek backward 10 seconds, ``{PLOVER:VLC_seek:+1m}`` to seek forward
    1 minute, or ``{PLOVER:VLC_seek:50%}`` to seek to the halfway point.
+
+Release history
+---------------
+
+in development
+~~~~~~~~~~~~~~
+
+* fix rate command documentation
+
+0.6.3
+~~~~~
+
+* improve seek command documentation
+* add rate command
