@@ -44,8 +44,8 @@ would translate to something like: ``[inaudible 00:08:01]``.
 Release history
 ---------------
 
-in development
-~~~~~~~~~~~~~~
+0.6.5
+~~~~~
 
 * add timestamp support
 
