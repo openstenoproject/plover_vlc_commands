@@ -53,6 +53,10 @@ would translate to something like: `[inaudible 00:08:01]`.
 
 ## Release history
 
+### 0.6.6
+
+* add support for `add`, `clear`, and `play` commands
+
 ### 0.6.5
 
 * add timestamp support
