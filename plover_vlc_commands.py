@@ -1,4 +1,5 @@
 
+from urllib.parse import quote_plus, urljoin
 import os
 import json
 
@@ -27,14 +28,44 @@ _vlc_auth = (_vlc_config['user'], _vlc_config['pass'])
 
 
 def _vlc_request(path=''):
-    r = requests.get(_vlc_url + path, auth=_vlc_auth)
+    url = urljoin(_vlc_url, path)
+    print('_vlc_request(%r)' % url)
+    r = requests.get(url, auth=_vlc_auth)
     r.raise_for_status()
     return r
 
+def _find_playlist_id_by_name(playlist, name):
+    kind = playlist['type']
+    if kind == 'node':
+        for child in playlist['children']:
+            pid = _find_playlist_id_by_name(child, name)
+            if pid is not None:
+                return pid
+    elif kind == 'leaf':
+        if name == playlist['name']:
+            return playlist['id']
+    return None
+
 # Commands. {{{
+
+def add(engine, cmdline):
+    _vlc_request('?command=in_enqueue&input=' + quote_plus(cmdline))
+
+def clear(engine, cmdline):
+    _vlc_request('?command=pl_empty')
 
 def pause(engine, cmdline):
     _vlc_request('?command=pl_forcepause')
+
+def play(engine, cmdline):
+    request = '?command=pl_play'
+    if cmdline:
+        playlist = _vlc_request('playlist.json').json()
+        pid = _find_playlist_id_by_name(playlist, cmdline)
+        if pid is None:
+            raise ValueError('no playlist item named: %r' % cmdline)
+        request += '&id=' + pid
+    _vlc_request(request)
 
 def rate(engine, cmdline):
     relative, percent = False, False
