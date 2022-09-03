@@ -72,8 +72,8 @@ def toggle_pause(engine, cmdline):
 # Metas. {{{
 
 def timestamp(ctx, cmdline):
-    r = _vlc_request()
-    seconds = r.json()['time']
+    status = _vlc_request().json()
+    seconds = status['time']
     hours = seconds // 3600
     seconds -= hours * 3600
     minutes = seconds // 60
